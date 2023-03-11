@@ -1,3 +1,5 @@
+import Button from "./Button";
+
 const styles = {
     display: "flex",
     alignItems: "center",
@@ -10,6 +12,7 @@ const styles = {
 function Header() {
     return (
         <header style={styles}>
+            <Button />
         </header>);
 };
 
