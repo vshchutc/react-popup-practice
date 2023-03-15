@@ -1,14 +1,25 @@
 import { useState } from 'react';
-import UserContext from '../userContext';
+import ReactModal from 'react-modal';
+import ModalContext from '../contexts/modalContext';
+import UserContext from '../contexts/userContext';
+import Content from './content/content';
 import Header from './header/Header';
+import ModalContent from './modalContent/modalContant';
 
 function App() {
 
-  const [user] = useState('');
+  const [userName, setUserName] = useState('');
+  const [isModalVisible, setIsModalVisible] = useState(false);
   return (
-    <UserContext.Provider value={user}>
-      <Header />
-    </UserContext.Provider>
+    <ModalContext.Provider value={{isModalVisible, setIsModalVisible}}>
+      <UserContext.Provider value={{userName, setUserName}}>
+        <div>
+          <Header />
+          {userName && <Content />}
+        </div>
+        <ReactModal style={{content: { inset: "8% auto auto 85%"}}} isOpen={isModalVisible}><ModalContent /></ReactModal>
+      </UserContext.Provider>
+    </ModalContext.Provider>
   );
 }
 

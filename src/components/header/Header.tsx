@@ -1,14 +1,14 @@
 import { useContext } from "react";
-import UserContext from "../../userContext";
+import UserContext from "../../contexts/userContext";
 import TriggerButton from "../triggerButton/TriggerButton";
 import "./Header.scss";
 
 
 function Header() {
-    const userName = useContext(UserContext);
+    const {userName} = useContext(UserContext);
     return (
         <header>
-                {userName ? <div className="user-data">{userName}</div>: null}
+                {userName && <div className="user-data">{userName}</div>}
                 <TriggerButton/>
         </header>);
 };
