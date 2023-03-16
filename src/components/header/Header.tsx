@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import UserContext from "../../contexts/userContext";
-import TriggerButton from "../triggerButton/TriggerButton";
+import ModalTriggerButton from "../modalTriggerButton/ModalTriggerButton";
 import "./Header.scss";
 
 
@@ -9,7 +9,7 @@ function Header() {
     return (
         <header>
                 {userName && <div className="user-data">{userName}</div>}
-                <TriggerButton/>
+                <ModalTriggerButton/>
         </header>);
 };
 
